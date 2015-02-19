@@ -1,0 +1,36 @@
+doctype html
+html
+
+    head
+        title=title
+
+    body
+        // Adduser Form
+        #addgame(class='container-fluid',style={'margin-bottom':'10px'})
+            div(class='row')
+                font#title(class='col-md-3',style={color:'white','font-size':'29px','text-align':'center'}).
+                    Rando Game Review
+                //fieldset(style={display:'inline',width:'65%'})
+                input#inputTitle(class='col-md-2',style={height:'36px','font-size':'25px'},type='text', placeholder='Game Title')
+                input#inputDateBeaten(class='col-md-2',style={height:'36px','font-size':'25px'},type='text', placeholder='Completion Date')
+                input#inputRating(class='col-md-2',style={height:'36px','font-size':'25px','margin-right':'10px'},type='text', placeholder='How many stars')
+                button#btnAddGame(class='col-md-2',style={height:'36px','font-size':'25px'}) Add Review
+        // /Adduser
+        #container(style={background:'white', height:'auto !important', height:'700px'})
+            // Gamelist
+            #gamelist
+                table(cellspacing="0",width='100%')
+                    thead(style={background:'#4F666E','font-size':'20px','text-align':'left',color:'white'})
+                        th(style={'border-right':'1px solid black',padding:'10px'}) Title
+                        th(style={'border-right':'1px solid black',padding:'10px'}) Date Completed
+                        th(style={padding:'10px'},colspan=2) Rating
+                    tbody
+            // /Gamelist
+        link(rel='stylesheet' href='//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css')
+        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+        script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+        script(src='//code.jquery.com/jquery-1.10.2.js')
+        script(src='//code.jquery.com/ui/1.11.3/jquery-ui.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src='/javascripts/gameslist.js')
