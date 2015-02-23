@@ -8,12 +8,26 @@ html
         // Adduser Form
         #addgame(class='container-fluid',style={'margin-bottom':'10px'})
             div(class='row')
-                font#title(class='col-md-3',style={color:'white','font-size':'29px','text-align':'center'}).
-                    Rando Game Review
-                //fieldset(style={display:'inline',width:'65%'})
+                font#title(class='col-md-3',style={color:'white','font-size':'28px','text-align':'center','margin-top':'2px'}).
+                    Rando Game Reviews
+                #gamesuggestions
                 input#inputTitle(class='col-md-2',style={height:'36px','font-size':'25px'},type='text', placeholder='Game Title')
-                input#inputDateBeaten(class='col-md-2',style={height:'36px','font-size':'25px'},type='text', placeholder='Completion Date')
-                input#inputRating(class='col-md-2',style={height:'36px','font-size':'25px','margin-right':'10px'},type='text', placeholder='How many stars')
+                input#inputDateBeaten(class='col-md-2',style={height:'36px','font-size':'25px'},type='text', placeholder='Date Completed')
+                select#inputRating(class='col-md-2',style={height:'36px','font-size':'25px','margin-right':'10px'},type='text', placeholder='How many stars')
+                    option(disabled=true selected=true)
+                    option(value='F') F
+                    option(value='D-') D-
+                    option(value='D') D
+                    option(value='D+') D+
+                    option(value='C-') C-
+                    option(value='C') C
+                    option(value='C+') C+
+                    option(value='B-') B-
+                    option(value='B') B
+                    option(value='B+') B+
+                    option(value='A-') A-
+                    option(value='A') A
+                    option(value='A+') A+
                 button#btnAddGame(class='col-md-2',style={height:'36px','font-size':'25px'}) Add Review
         // /Adduser
         #container(style={background:'white', height:'auto !important', height:'700px'})
