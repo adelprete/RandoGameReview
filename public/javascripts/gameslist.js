@@ -68,10 +68,10 @@ function populateGameTable() {
           }
           var formatted_date = mm + '/' + dd + '/' + YYYY;
 
-          tableContent += '<tr style="font-size:20px;">';
-          tableContent += '<td style="padding-right:20px;">' + this.title + '</td>';
-          tableContent += '<td>' + formatted_date + '</td>';
-          tableContent += '<td>' + this.rating + '</td>';
+          tableContent += '<tr class="active" style="font-size:20px;">';
+          tableContent += '<td style="padding-left:8px;padding-top:2px;padding-bottom:2px;word-wrap:break-word;">' + this.title + '</td>';
+          tableContent += '<td style="padding-left:8px;padding-top:2px;padding-bottom:2px;">' + formatted_date + '</td>';
+          tableContent += '<td style="padding-left:8px;padding-top:2px;padding-bottom:2px;">' + this.rating + '</td>';
           //tableContent += '<td style="width:20px;"><a href="#" style="color:red;" class="linkdeletegame" rel="'+ this._id +'">{X}</a></td>';
           tableContent += '</tr>';
       });
@@ -91,6 +91,15 @@ function addGame(event) {
     var errorNumber = 0;
     if($('#addgame div input#inputTitle').val() === ''){
       errorNumber = 1;
+    }
+    else{
+
+      if($('#addgame div input#inputTitle').val().length > 140){
+        errorNumber = 3;
+      }
+      else if($('#addgame div input#inputTitle').val().trim().length === 0){
+        errorNumber = 4;
+      }
     }
 
     if($('#addgame div input #inputDateBeaten').val() === ''){
@@ -150,11 +159,19 @@ function addGame(event) {
     }
     else if (errorNumber === 1){
         // If errorNumber is 1
-        alert('Please fill in all fields');
+        alert("Looks like you've got a blank field somewhere pal");
         return false;
     }
     else if (errorNumber === 2){
-        alert('Cannot enter a future date');
+        alert("Can't beat a game in the future dummy!");
+        return false;
+    }
+    else if (errorNumber === 3){
+        alert('Lets keep things under 140 characters, yea?');
+        return false;
+    }
+    else if (errorNumber === 4){
+        alert('Would you type something for the game title atleast!');
         return false;
     }
 };
