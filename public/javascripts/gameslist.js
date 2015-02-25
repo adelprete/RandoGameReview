@@ -47,20 +47,32 @@ function populateGameTable() {
 
   // jQuery AJAX call for JSON
   $.getJSON( '/games/gameslist', function( data ) {
-
+      /*
       data.sort(function(a, b) {
         a = new Date(a.datecompleted);
         b = new Date(b.datecompleted);
         return a>b ? -1 : a<b ? 1 : 0;
       });
-
+      */
       // For each item in our JSON, add a table row and cells to the content string
       $.each(data, function(){
+          var datecompleted = new Date(this.datecompleted);
+          var YYYY = datecompleted.getFullYear();
+          var dd = datecompleted.getDate();
+          var mm = datecompleted.getMonth()+1;
+          if(dd<10){
+            dd='0'+dd;
+          }
+          if(mm<10){
+            mm='0'+mm;
+          }
+          var formatted_date = mm + '/' + dd + '/' + YYYY;
+
           tableContent += '<tr style="font-size:20px;">';
           tableContent += '<td style="padding-right:20px;">' + this.title + '</td>';
-          tableContent += '<td>' + this.datecompleted + '</td>';
+          tableContent += '<td>' + formatted_date + '</td>';
           tableContent += '<td>' + this.rating + '</td>';
-          tableContent += '<td style="width:20px;"><a href="#" style="color:red;" class="linkdeletegame" rel="'+ this._id +'">{X}</a></td>';
+          //tableContent += '<td style="width:20px;"><a href="#" style="color:red;" class="linkdeletegame" rel="'+ this._id +'">{X}</a></td>';
           tableContent += '</tr>';
       });
 
@@ -74,27 +86,19 @@ function populateGameTable() {
 function addGame(event) {
     event.preventDefault();
 
+    var dateCompleted;
     // Super basic validation - increase errorCount variable if any fields are blank
     var errorNumber = 0;
     if($('#addgame div input#inputTitle').val() === ''){
       errorNumber = 1;
     }
+
     if($('#addgame div input #inputDateBeaten').val() === ''){
       errorNumber = 1;
     }
     else{
+      //make sure no future dates are entered
       var today = new Date();
-      var dd = today.getDate();
-      var mm = today.getMonth()+1; //January is 0!
-
-      var yyyy = today.getFullYear();
-      if(dd<10){
-          dd='0'+dd
-      }
-      if(mm<10){
-          mm='0'+mm
-      }
-      var today = new Date(mm+'/'+dd+'/'+yyyy);
       var dateCompleted = new Date($('#addgame div input#inputDateBeaten').val());
       if(dateCompleted > today){
         errorNumber = 2;
@@ -111,7 +115,7 @@ function addGame(event) {
         // If it is, compile all user info into one object
         var newGame = {
             'title': $('#addgame div input#inputTitle').val(),
-            'datecompleted': $('#addgame div input#inputDateBeaten').val(),
+            'datecompleted': dateCompleted,
             'rating': $('#addgame div select#inputRating').val(),
         }
 
@@ -127,7 +131,10 @@ function addGame(event) {
             if (response.msg === '') {
 
                 // Clear the form inputs
-                $('#addgame fieldset input').val('');
+                $('#addgame div input').val('');
+
+                // Clear the form inputs
+                $('#addgame div select').val('');
 
                 // Update the table
                 populateGameTable();

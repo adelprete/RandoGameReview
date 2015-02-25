@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
  */
 router.get('/gameslist', function(req, res) {
     var db = req.db;
-    db.collection('gameslist').find().toArray(function (err, items) {
+    db.collection('gameslist').find().sort({datecompleted:-1}).limit(200).toArray(function (err, items) {
         res.json(items);
     });
 });
@@ -21,7 +21,8 @@ router.get('/gameslist', function(req, res) {
  */
 router.post('/addgame', function(req, res) {
     var db = req.db;
-    console.log(req.body)
+    req.body['datecompleted'] = new Date(req.body['datecompleted']);
+
     db.collection('gameslist').insert(req.body, function(err, result){
         res.send(
             (err === null) ? { msg: '' } : { msg: err }
