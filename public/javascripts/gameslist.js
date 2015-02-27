@@ -171,7 +171,7 @@ function addGame(event) {
         return false;
     }
     else if (errorNumber === 4){
-        alert('This game has a name doesn't it?');
+        alert("This game has a name doesn't it?");
         return false;
     }
 };
