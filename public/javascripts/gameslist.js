@@ -113,8 +113,8 @@ function addGame(event) {
         errorNumber = 2;
       }
     }
-
-    if($('#addgame div select#inputRating').val() === ''){
+    console.log("Rating = " + $('#addgame div select#inputRating').val());
+    if($('#addgame div select#inputRating').val() == null){
       errorNumber = 1;
     }
 
