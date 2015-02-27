@@ -2,6 +2,9 @@
 $(document).ready(function() {
     // Populate the user table on initial page load
     populateGameTable();
+    window.setInterval(function(){
+      populateGameTable();
+    }, 5000);
 
     $("#inputDateBeaten").datepicker();
 
