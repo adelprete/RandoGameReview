@@ -159,19 +159,19 @@ function addGame(event) {
     }
     else if (errorNumber === 1){
         // If errorNumber is 1
-        alert("Looks like you've got a blank field somewhere pal");
+        alert("Looks like there's a blank field somewhere.");
         return false;
     }
     else if (errorNumber === 2){
-        alert("Can't beat a game in the future dummy!");
+        alert("Can't beat a game in the future.");
         return false;
     }
     else if (errorNumber === 3){
-        alert('Lets keep things under 140 characters, yea?');
+        alert('Lets try to keep things under 140 characters.');
         return false;
     }
     else if (errorNumber === 4){
-        alert('Would you type something for the game title atleast!');
+        alert('This game has a name doesn't it?');
         return false;
     }
 };
