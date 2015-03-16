@@ -17,12 +17,12 @@ html
     body
         // Adduser Form
         #addgame(class='container-fluid',style={'margin-bottom':'10px'})
-            div(class='row')
-                font#title(class='col-md-3',style={color:'white','font-size':'28px','text-align':'center','margin-top':'2px',cursor:'default'}).
+            #header(style={width:'100%'})
+                font#title(class="span-4",style={color:'white','font-size':'28px','text-align':'center','margin-top':'2px','margin-right':'10px',cursor:'default'}).
                     Rando Game Reviews
-                input#inputTitle(class='col-md-2',style={height:'36px','font-size':'25px'},type='text', placeholder='Game Title')
-                input#inputDateBeaten(class='col-md-2',style={height:'36px','font-size':'25px'},type='text', placeholder='Date Completed',readonly='readonly')
-                select#inputRating(class='col-md-2',style={height:'36px','font-size':'25px','margin-right':'10px'},type='text', placeholder='How many stars')
+                input#inputTitle(class="span-4",style={height:'36px','font-size':'25px'},type='text', placeholder='Game Title')
+                input#inputDateBeaten(class="span-4",style={height:'36px','font-size':'25px'},type='text', placeholder='Date Completed',readonly='readonly')
+                select#inputRating(style={height:'36px',width:'200px','font-size':'25px','margin-right':'10px'},type='text', placeholder='How many stars')
                     option(disabled=true selected=true)
                     option(value='F') F
                     option(value='D-') D-
@@ -37,7 +37,7 @@ html
                     option(value='A-') A-
                     option(value='A') A
                     option(value='A+') A+
-                button#btnAddGame(class='col-md-2',style={height:'36px','font-size':'25px'}) Add Review
+                button#btnAddGame(style={height:'36px',width:'200px','font-size':'25px'}) Add Review
         // /Adduser
         #container(style={background:'white'})
             // Gamelist
