@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 /*
- * GET userlist.
+ * GET gameslist.
  */
 router.get('/gameslist', function(req, res) {
     var db = req.db;
@@ -17,7 +17,7 @@ router.get('/gameslist', function(req, res) {
 });
 
 /*
- * POST to adduser.
+ * POST to addgame.
  */
 router.post('/addgame', function(req, res) {
     var db = req.db;
@@ -31,7 +31,7 @@ router.post('/addgame', function(req, res) {
 });
 
 /*
- * DELETE to deleteuser.
+ * DELETE to deletegame.
  */
 router.delete('/deletegame/:id', function(req, res) {
     var db = req.db;

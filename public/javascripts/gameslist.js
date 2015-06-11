@@ -85,7 +85,7 @@ function populateGameTable() {
 
 };
 
-// Add User
+// Add Game
 function addGame(event) {
     event.preventDefault();
 
@@ -105,7 +105,7 @@ function addGame(event) {
       }
     }
 
-    if($('#addgame div input #inputDateBeaten').val() === ''){
+    if($('#addgame div input#inputDateBeaten').val().length < 1){
       errorNumber = 1;
     }
     else{
@@ -116,7 +116,7 @@ function addGame(event) {
         errorNumber = 2;
       }
     }
-    console.log("Rating = " + $('#addgame div select#inputRating').val());
+
     if($('#addgame div select#inputRating').val() == null){
       errorNumber = 1;
     }
@@ -166,7 +166,7 @@ function addGame(event) {
         return false;
     }
     else if (errorNumber === 2){
-        alert("Can't beat a game in the future.");
+        alert("Dates cannot be in the future.");
         return false;
     }
     else if (errorNumber === 3){
