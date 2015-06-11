@@ -11,42 +11,45 @@ html
 
             ga('create', 'UA-60161097-1', 'auto');
             ga('send', 'pageview');
-        link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
-
-
 
     body
-        // Adduser Form
-        #addgame(class='container-fluid',style={'margin-bottom':'10px'})
-            #header(style={width:'100%'})
-                font#title(class="span-4",style={color:'white','font-size':'28px','text-align':'center','margin-top':'2px','margin-right':'10px',cursor:'default'}).
-                    Rando Game Reviews
-                input#inputTitle(class="span-4",style={height:'36px','font-size':'25px'},type='text', placeholder='Game Title')
-                input#inputDateBeaten(class="span-4",style={height:'36px','font-size':'25px'},type='text', placeholder='Date Completed',readonly='readonly')
-                select#inputRating(style={height:'36px',width:'200px','font-size':'25px','margin-right':'10px'},type='text', placeholder='How many stars')
-                    option(disabled=true selected=true)
-                    option(value='F') F
-                    option(value='D-') D-
-                    option(value='D') D
-                    option(value='D+') D+
-                    option(value='C-') C-
-                    option(value='C') C
-                    option(value='C+') C+
-                    option(value='B-') B-
-                    option(value='B') B
-                    option(value='B+') B+
-                    option(value='A-') A-
-                    option(value='A') A
-                    option(value='A+') A+
-                button#btnAddGame(style={height:'36px',width:'200px','font-size':'25px'}) Add Review
-        // /Adduser
+        // Addgame Form
+        #addgame(class='container-fluid',style={'margin-bottom':'5px'})
+            #header(style={'width':'100%'})
+                center(class='row')
+                    div(class='col-lg-2')
+                        div#title Rando Game Reviews
+                    div(class='col-md-10 col-lg-8',style={'margin':'auto'})
+                        div(class='col-sm-4')
+                            input#inputTitle(type='text', placeholder='Game Title')
+                        div(class='col-sm-4')
+                            input#inputDateBeaten(type='text', placeholder='Date Completed', readonly='readonly')
+                        div(class='col-sm-4')
+                            select#inputRating(type='text')
+                                option(value="",disabled=true selected=true) Choose a rating
+                                option(value='F') F
+                                option(value='D-') D-
+                                option(value='D') D
+                                option(value='D+') D+
+                                option(value='C-') C-
+                                option(value='C') C
+                                option(value='C+') C+
+                                option(value='B-') B-
+                                option(value='B') B
+                                option(value='B+') B+
+                                option(value='A-') A-
+                                option(value='A') A
+                                option(value='A+') A+
+                      div(class='col-md-2')
+                            button#btnAddGame(style={height:'36px','font-size':'25px','width':'100%'}) Add Review
+        // /Addgame
         #container(style={background:'white'})
             // Gamelist
             #gamelist
                 table(cellspacing="0",width='100%',style={'table-layout':'fixed'},class='table-hover')
                     thead(style={background:'#4F666E','font-size':'20px','text-align':'left',color:'white'})
-                        th(style={'border-right':'1px solid black',padding:'10px',width:'35%'}) Title
-                        th(style={'border-right':'1px solid black',padding:'10px',width:'40%'}) Date Completed
+                        th(style={padding:'10px',width:'35%'}) Title
+                        th(style={padding:'10px',width:'40%'}) Date Completed
                         th(style={padding:'10px'}) Rating
                     tbody
             // /Gamelist
